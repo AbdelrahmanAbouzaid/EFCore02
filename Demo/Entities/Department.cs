@@ -12,10 +12,12 @@ namespace Demo.Entities
         public int Id { get; set; }
         public string Name { get; set; }
 
-        //[ForeignKey(nameof(Manager))] // If We Have mor than one relation[Navigational property]
+        ////public int ManagerId { get; set; } // FK
+        [ForeignKey(nameof(Manager))] // If We Have mor than one relation[Navigational property]
         public int EmpId { get; set; } // FK
-        //public int ManagerId { get; set; } // FK
         public Employee Manager { get; set; } // Navigational property
+
+        public List<Employee> Employees { get; set; }
 
     }
 }

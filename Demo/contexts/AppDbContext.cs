@@ -34,6 +34,15 @@ namespace Demo.contexts
             //modelBuilder.Entity<Department>().HasOne(d => d.Manager)
             //                                 .WithOne(e => e.Department)
             //                                 .HasForeignKey<Department>(d => d.EmpId);
+
+
+            //modelBuilder.Entity<Department>().HasMany(d => d.Employees)
+            //    .WithOne(e => e.WorkFor).HasForeignKey(e => e.WorkForId);
+
+            modelBuilder.Entity<Employee>().HasOne(e => e.WorkFor).WithMany(d => d.Employees)
+                        .HasForeignKey(e => e.WorkForId);
+            modelBuilder.Entity<CourseStudent>().HasKey(cs => new {cs.StudentId , cs.CourseId});
+
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -42,5 +51,8 @@ namespace Demo.contexts
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
+
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Student> Studnets { get; set; }
     }
 }

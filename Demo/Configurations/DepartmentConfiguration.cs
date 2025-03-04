@@ -16,9 +16,9 @@ namespace Demo.Configurations
         {
             builder.HasKey(d => d.Id);
             builder.Property(d => d.Name).HasMaxLength(128).HasColumnType("varchar");
-            builder.HasOne(d => d.Manager)
-                                            .WithOne(e => e.Department)
-                                            .HasForeignKey<Department>(d => d.EmpId);
+            //builder.HasOne(d => d.Manager)
+            //                                .WithOne(e => e.Department)
+            //                                .HasForeignKey<Department>(d => d.EmpId);
 
         }
     }

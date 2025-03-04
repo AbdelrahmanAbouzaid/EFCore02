@@ -15,8 +15,15 @@ namespace Demo.Entities
         public int Age { get; set; }
         public string Address { get; set; }
 
+
+        public int DepartmentId { get; set; }
         //[InverseProperty(nameof(Department.Manager))]
         public Department Department { get; set; }
+
+        public int? WorkForId { get; set; }
+        //[InverseProperty(nameof(Department.Employees))]
+        public Department? WorkFor { get; set; }
+
 
         public override string ToString()
         {
