@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment.Entities
+namespace ITI.Entities
 {
     internal class Instructor
     {
@@ -14,9 +15,23 @@ namespace Assignment.Entities
         public double Salary { get; set; }
         public string Address { get; set; }
         public double HourRate { get; set; }
-        public int DepartmentID { get; set; }
+        //Navigationl Property
 
+
+        //OneToMany With Department
+        [ForeignKey(nameof(Works))]
+        public int? DeptId { get; set; }
+        public Department Works { get; set; }
+
+
+        //OneToOne With Department
+        [InverseProperty(nameof(Department.Manager))]
         public Department Department { get; set; }
-        public List<Course_Ins> CourseInsts { get; set; }
+
+
+        //OneToMany With Topic
+        public List<CourseInst> CourseInsts { get; set; }
+
+
     }
 }

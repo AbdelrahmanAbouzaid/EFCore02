@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Demo.Entities
+namespace ITI.Entities
 {
-    internal class CourseStudent
+    internal class StudentCourse
     {
         public int StudentId { get; set; }
         public int CourseId { get; set; }
-        public double Grade { get; set; }
 
-      
-        
+        public int Grade { get; set; }
+
     }
 }

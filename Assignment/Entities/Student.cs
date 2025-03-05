@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment.Entities
+namespace ITI.Entities
 {
     internal class Student
     {
@@ -13,10 +14,15 @@ namespace Assignment.Entities
         public string LName { get; set; }
         public string Address { get; set; }
         public int Age { get; set; }
+        //Navigational Property
 
-        public int DepartmentId { get; set; }
+        //OneToMany with Department
+        [ForeignKey(nameof(Department))]
+        public int? DeptId { get; set; }
         public Department Department { get; set; }
-        public List<Student_Course> StudentCourse { get; set; }
+
+        //OneToMany With StudentCourse
+        public List<StudentCourse> StudentCourses { get; set; }
 
     }
 }
